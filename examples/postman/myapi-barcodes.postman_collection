@@ -1,0 +1,29 @@
+{
+    "info": {
+        "name": "myapi.rest \u2014 Barcode API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Generate Barcode",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer <API_KEY>"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "url": "https://api.myapi.rest/api/barcode/generate",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"data\": \"DEC25-45PC\",\n    \"barcode_format\": \"code_128\",\n    \"output_format\": \"SVG\",\n    \"width\": 200,\n    \"height\": 50,\n    \"margin\": 0\n}"
+                }
+            }
+        }
+    ]
+}
