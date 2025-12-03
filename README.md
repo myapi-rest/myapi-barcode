@@ -5,6 +5,50 @@
 
 # myapi.rest — Barcode API
 
-Generate high‑quality barcodes (Code128, EAN, UPC, etc...) using a simple REST API.
+Generate high‑quality barcodes via a simple, fast REST API.
 
-See `/docs` for full usage details.
+## Features
+- Supports formats like Code 128, EAN, UPC  
+- PNG, JPG, or SVG output  
+- Adjustable width, height, and margins  
+- Lightweight and developer-friendly  
+
+## Quick Example
+
+```bash
+curl --location 'https://api.myapi.rest/api/barcode/generate'   --header 'Authorization: Bearer <API_KEY>'   --header 'Content-Type: application/json'   --data '{
+    "data": "DEC25-45PC",
+    "barcode_format": "code_128",
+    "output_format": "SVG",
+    "width": 200,
+    "height": 50,
+    "margin": 0
+  }'
+```
+
+**Sample response:**
+
+```json
+{
+  "id": 5,
+  "barcode": "<BASE_64_DATA>"
+}
+```
+
+## Documentation
+See the [`/docs`](./docs) folder for full usage guides, examples, errors, and endpoint details.
+
+## Examples
+Language examples are available in the [`/examples`](./examples) directory, including:
+- C#
+- JavaScript
+- Python
+- PHP
+- Postman Collection
+
+## myapi.rest Suite
+
+This API is part of the broader **myapi.rest** developer suite.  
+For all APIs, documentation, and examples, visit:
+
+👉 https://github.com/myapi-rest/myapi.rest
