@@ -1,0 +1,61 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "myapi.rest — Barcode API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    { "url": "https://api.myapi.rest" }
+  ],
+  "paths": {
+    "/api/barcode/generate": {
+      "post": {
+        "summary": "Generate a barcode",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": { "type": "string" },
+                  "barcode_format": { "type": "string" },
+                  "output_format": { "type": "string" },
+                  "width": { "type": "integer" },
+                  "height": { "type": "integer" },
+                  "margin": { "type": "integer" }
+                },
+                "required": ["data", "barcode_format", "output_format"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Barcode generated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "integer" },
+                    "barcode": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
